@@ -8,7 +8,7 @@ from kandidat.serializers import KandidatSerializer
 from rest_framework.decorators import api_view
 from .forms import RegisterForm
 from django.contrib.auth.hashers import make_password
-from django.contrib.auth import get_user_model,authenticate,login
+from django.contrib.auth import get_user_model,authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 
@@ -180,3 +180,7 @@ def register(request):
             return redirect('login')
 
     return render(request,'kandidat/register.html',{'form':form})
+
+def signout(request):
+    logout(request)
+    return redirect("login")
