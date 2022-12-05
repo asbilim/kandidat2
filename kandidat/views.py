@@ -148,10 +148,11 @@ def signin(request):
 
         try :
             user = authenticate(username=username,password=password)
-        except Exception as e:
-            print(e)
+        except:
             return render(request,'kandidat/login.html')
-        
+
+        if user is None:
+            return render(request,'kandidat/login.html')
         login(request,user)
         return redirect('kandidat-home')
 
@@ -176,7 +177,10 @@ def register(request):
         if form.is_valid():
             password = form.cleaned_data['password']
             username = form.cleaned_data['username']
-            get_user_model().objects.create(username=username,password=make_password(password))
+            try:
+                get_user_model().objects.create(username=username,password=make_password(password))
+            except:
+                return redirect('login')
             return redirect('login')
 
     return render(request,'kandidat/register.html',{'form':form})

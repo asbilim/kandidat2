@@ -66,6 +66,8 @@
     <script>
 
         $('document').ready(()=>{
+            console.log(window.location.origin)
+            var endpoint = window.location.origin
             const collectData = () =>{
                 let firstname = $('#firstname').val()
                 let lastname = $('#lastname').val()
@@ -88,7 +90,7 @@
                 return data;
             }
             const sendData = async (data)=>{
-                 fetch("http://192.168.0.100:8080/api/kandidaten",{
+                 fetch(`${endpoint}/api/kandidaten`,{
                     method: 'POST',
                     headers:{
                         "content-type": "application/json",
