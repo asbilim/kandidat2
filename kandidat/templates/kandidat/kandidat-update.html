@@ -62,18 +62,18 @@
                     <div class="flex items-center my-6,justify-center">
                         {% if candidat.ist_erwachsene %}
                             <div class="flex items-center h-5">
-                                <input id="adult" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2" required="">
+                                <input id="adult" checked type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2">
                             </div>
                             <label for="remember" class="ml-2 text-xl font-bold text-gray-900 dark:text-gray-300">Ich bin kein erwachser</label>
                         {% else %}
                             <div class="flex items-center h-5">
-                                <input checked id="adult" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2" required="">
+                                <input id="adult" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2" >
                             </div>
                             <label for="remember" class="ml-2 text-xl font-bold text-gray-900 dark:text-gray-300">ich bin kein erwachsener</label>
                         {% endif %}
 
                     </div>
-                    <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-normal rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-4" id="submit">Einreichen</button>
+                    <button class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-2 focus:outline-none focus:ring-blue-300 font-normal rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 my-4" id="submit">Einreichen</button>
                 </form>
             <!-- Formularende-->
 
@@ -83,7 +83,7 @@
     {% block script %}
 
     <script>
-        let endpoint = window.location.origin;
+        endpoint = window.location.origin;
         $('document').ready(()=>{
             const collectData = () =>{
                 let firstname = $('#firstname').val()
